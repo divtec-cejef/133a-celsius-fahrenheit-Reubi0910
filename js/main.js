@@ -6,18 +6,26 @@
  */
 'use strict'; // Demande un interprétation stricte du code
 
-let a = 'Bonjour';
+let btConvertir = document.querySelector("#convert");
+let txtInput = document.querySelector("#input");
+let btReset = document.querySelector("#reset");
+let pResult = document.querySelector("#result");
+let ulHistorique = document.querySelector("#history");
 
-console.log(a);
+btConvertir.addEventListener("click",() => {
+    let tempC = parseFloat(txtInput.value);
+    if(isNaN(tempC)) {
+        alert("Température Invalide !")
+    } else {
+        // calcule et affiche la température en fahrenheit
+        let tempF = tempC * 9 / 5  + 32;
+        pResult.innerText = `Résultat : ${tempF}°F`;
+        ulHistorique.innerHTML += `<li> ${tempC}°C = ${tempF}°F`;
+    }
+});
 
-// entrée du nombre en celcius par l'utilisateur
-let tempC = prompt("Température en celcius :");
+btReset.addEventListener("click",() => {
+    pResult.innerText = "Résultat : ";
+    ulHistorique.innerHTML = "";
+});
 
-// testes si la valeur entrée est un nombre
-if(isNaN(tempC)) {
-    alert("Température Invalide !")
-} else {
-    // calcule et affiche la température en fahrenheit
-    let tempF = tempC * 9 / 5  + 32;
-    alert(`${tempC}°C = ${tempF}°F`);
-}
