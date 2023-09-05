@@ -9,7 +9,7 @@
 let btConvertir = document.querySelector("#convert");
 let txtInput = document.querySelector("#input");
 let btReset = document.querySelector("#reset");
-let pInput = document.querySelector("#result");
+let pResult = document.querySelector("#result");
 let ulHistorique = document.querySelector("#history");
 
 btConvertir.addEventListener("click",() => {
@@ -19,13 +19,13 @@ btConvertir.addEventListener("click",() => {
     } else {
         // calcule et affiche la température en fahrenheit
         let tempF = tempC * 9 / 5  + 32;
-        pInput.innerText = `Résultat : ${tempF}°F`;
+        pResult.innerText = `Résultat : ${tempF}°F`;
         ulHistorique.innerHTML += `<li> ${tempC}°C = ${tempF}°F`;
     }
 });
 
 btReset.addEventListener("click",() => {
-    pInput.innerText = "Résultat : ";
+    pResult.innerText = "Résultat : ";
     ulHistorique.innerHTML = "";
 });
 
